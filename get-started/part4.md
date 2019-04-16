@@ -120,7 +120,8 @@ so they can connect to each other.
 1. Launch Hyper-V Manager
 2. Click **Virtual Switch Manager** in the right-hand menu
 3. Click **Create Virtual Switch** of type **External**
-4. Give it the name `myswitch`, and check the box to share your host machine's
+4. In the `connection type`, make sure you select the current active network connection that you are using.
+5. Give it the name `myswitch`, and check the box to share your host machine's
    active network adapter
 
 Now, create a couple of VMs using our node management tool,
@@ -495,6 +496,23 @@ with the given command.
 
   ```shell
   & "C:\Program Files\Docker\Docker\Resources\bin\docker-machine.exe" env -u | Invoke-Expression
+  ```
+  
+  On **Windows 10**, the command is:
+  
+    ```shell
+  docker-machine env -u
+  ```
+  
+  Which will give you an output like:
+  
+  ```shell
+  SET DOCKER_TLS_VERIFY=
+  SET DOCKER_HOST=
+  SET DOCKER_CERT_PATH=
+  SET DOCKER_MACHINE_NAME=
+  REM Run this command to configure your shell:
+  REM     @FOR /f "tokens=*" %i IN ('docker-machine env -u') DO @%i
   ```
 
 This disconnects the shell from `docker-machine` created virtual machines,
